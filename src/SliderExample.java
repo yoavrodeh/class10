@@ -34,9 +34,10 @@ public class SliderExample extends Application {
 			new ChangeListener<Number>() {
 				@Override
 				public void changed(
-					ObservableValue<? extends Number> obs,
+					ObservableValue<? extends Number> o,
 					Number oldVal, Number newVal) {
-					label.setText("" + newVal.intValue());
+					label.setText(
+							"" + newVal.intValue());
 				}
 			});
 		return hbox;

@@ -24,7 +24,6 @@ JavaFX basics:
 
 The Standard GUI (Graphical User Interface) library for Java.
 
-+ We will work with JavaFX 8.
 + The older library was called Swing, and it is still supported.
 + JavaFX is **HUGE**, and this lecture is an introduction. 
   + To really use its full potential, there is a lot more you can learn.
@@ -42,12 +41,12 @@ The Standard GUI (Graphical User Interface) library for Java.
 
 
 ---
-@code[java code-max code-noblend](class10/src/First.java)
+@code[java code-max code-noblend](src/First.java)
 @[7-21]
 
 
 ---
-@img[span-50](class10/resources/First.png)
+@img[span-50](resources/First.png)
 
 
 
@@ -78,7 +77,7 @@ The JavaFX Scene class is the container for all content in a scene graph.
 
 
 ---
-@img[span-80](class10/resources/javafx-overview-1.png)
+@img[span-80](resources/javafx-overview-1.png)
 
 
 ---
@@ -94,8 +93,8 @@ There are two main types:
 
 
 ---
-@img[span-25](class10/resources/Telephone.png)
-@img[span-60](class10/resources/scene-graph.png)
+@img[span-25](resources/Telephone.png)
+@img[span-60](resources/scene-graph.png)
 
 
 @css[fragment](*Let's write the top part:*)
@@ -104,7 +103,7 @@ There are two main types:
 
 
 ---
-@code[java code-max code-noblend](class10/src/Telephone.java)
+@code[java code-max code-noblend](src/Telephone.java)
 @[12-22](Standard.)
 @[24-30](`getChildren` returns the list of children, and you can manipulate it like any list. Padding is the space inside the border between the border and the contents.)
 @[32-39](Like `VBox`, `GridPane` is a layout component.)
@@ -112,7 +111,7 @@ There are two main types:
 
 
 ---
-@img[span-60 bordered](class10/resources/Telephone1.png)
+@img[span-60 bordered](resources/Telephone1.png)
 
 We still have some more work to do...
 
@@ -121,13 +120,13 @@ We still have some more work to do...
 
 
 ---
-@code[java code-max code-noblend](class10/src/OneLabel.java)
+@code[java code-max code-noblend](src/OneLabel.java)
 @[21-32](A `StackPane` is a layout component which by default puts its children in the middle on top of each other.)
 @[34-47](A `Label` can have a text and/or a picture. A background can have many `BackgroundFill`s and `BackgroundImage`s.)
 
 
 ---
-@img[span-80 bordered](class10/resources/OneLabel.png)
+@img[span-80 bordered](resources/OneLabel.png)
 
 
 
@@ -142,14 +141,14 @@ We still have some more work to do...
 
 
 ---
-@img[span-50](class10/resources/hierarchy.PNG)
+@img[span-50](resources/hierarchy.PNG)
 
 
 
 
 ---
 These are some JavaFX controls.
-@img[span-60](class10/resources/uicontrols.png)
+@img[span-60](resources/uicontrols.png)
 
 
 ---
@@ -161,7 +160,7 @@ Javafx has automatic layout capabilities.
 
 
 ---
-@img[span-70](class10/resources/layouts.png)
+@img[span-70](resources/layouts.png)
 
 
 ---
@@ -203,7 +202,7 @@ For that, each `Node` has a maximum, minimum and preferred size. Both for width 
 ---
 ### Resizing of Child Nodes
 + The size of a resizable node (`Region`, `Control`, etc.) will depend on two things:
-+ It's own min/pref/max values.
++ Its own min/pref/max values.
 + The sizing policy of its parent:
 + Layout component size their children automatically, and they do it differently. 
 
@@ -213,7 +212,7 @@ For that, each `Node` has a maximum, minimum and preferred size. Both for width 
 
 ---
 ### VBox
-1. It's preferred width is the maximal preferred width of its children.
+1. Its preferred width is the maximal preferred width of its children.
 1. Attempts to set the width of its children to its own width.
   +  but only between their min and max widths.
 1. Its minimum width is the max of its children minimum widths.
@@ -223,7 +222,7 @@ For that, each `Node` has a maximum, minimum and preferred size. Both for width 
 
 
 ---
-@code[java code-max code-noblend](class10/src/VBoxExample.java)
+@code[java code-max code-noblend](src/VBoxExample.java)
 @[8-19](usual.)
 @[21-29](You can also add children one by one.)
 
@@ -232,7 +231,7 @@ For that, each `Node` has a maximum, minimum and preferred size. Both for width 
 
 
 ---
-@img[span-25 bordered](class10/resources/VBoxExample.png)
+@img[span-25 bordered](resources/VBoxExample.png)
 
 + The preferred width of a `Button` is the text length plus padding.
 + The minimum width is when it's just "...".
@@ -241,7 +240,7 @@ For that, each `Node` has a maximum, minimum and preferred size. Both for width 
 
 
 ---
-@img[span-25 bordered](class10/resources/VBoxExample2.png)
+@img[span-25 bordered](resources/VBoxExample2.png)
 
 Is the result of adding these lines:
 ```java code-noblend
@@ -255,7 +254,7 @@ b3.setMaxWidth(Double.MAX_VALUE);
 ---
 We can see how each pane tries to resize its children:
 
-@img[span-60](class10/resources/layouts2.png)
+@img[span-60](resources/layouts2.png)
 
 `StackPane` actually tries to make its children fit the whole space.
 
@@ -273,12 +272,12 @@ We can see how each pane tries to resize its children:
 ---
 Let's make the following with a `GridPane`:
 
-@img[span-50 bordered](class10/resources/GridPaneExample.png)
+@img[span-50 bordered](resources/GridPaneExample.png)
 
 
 
 ---
-@code[java code-max code-noblend](class10/src/GridPaneExample.java)
+@code[java code-max code-noblend](src/GridPaneExample.java)
 @[21-33](The last `add` specifies the size of the rectangle this button takes.)
 @[35-38](We can create a column constraint for each column and add them all.)
 
@@ -287,7 +286,7 @@ Let's make the following with a `GridPane`:
 ---
 ### Constraints
 + `getColumnConstraints()` returns a list of constraints, and you can change it like any list.
-+ `ColumnConstraints` has a several `set` methods:
++ `ColumnConstraints` has several `set` methods:
   + `setPercentWidth(double)`, to control the column width as a percent of the grid.
   + `setHalignment(Pos)`, to control alignment.
   + etc.
@@ -330,15 +329,15 @@ Then, register an instance of this class to a specific event.
 
 
 ---
-@code[java code-max code-noblend](class10/src/OneButton.java)
+@code[java code-max code-noblend](src/OneButton.java)
 @[12-22]
-@[24-37](Here we make the handler a local class. Why can't `i` be a local variable?)
-@[39-46](First line is where we **register** the event handler.)
+@[24-38](Here we make the handler a local class. Why can't `i` be a local variable?)
+@[40-46](First line is where we **register** the event handler.)
 
 
 
 ---
-@img[span-35 bordered](class10/resources/OneButton.gif)
+@img[span-35 bordered](resources/OneButton.gif)
 
 @css[fragment](*Another example:*)
 
@@ -346,7 +345,7 @@ Then, register an instance of this class to a specific event.
 ---
 The screen changes color according to the mouse position:
 
-@img[span-35](class10/resources/MouseMoves.gif)
+@img[span-35](resources/MouseMoves.gif)
 
 @css[fragment](*Here is the code:*)
 
@@ -354,26 +353,26 @@ The screen changes color according to the mouse position:
 
 
 ---
-@code[java code-max code-noblend](class10/src/MouseMoves.java)
+@code[java code-max code-noblend](src/MouseMoves.java)
 @[11-22]
 @[24-38](The handler is an anonymous inner class. It handles `MouseEvent` - which has methods `getSceneX` and `getSceneY`.)
-
+@[39-40]
 
 ---
 
 
-@img[span-35 bordered](class10/resources/TwoButtons.gif)
+@img[span-35 bordered](resources/TwoButtons.gif)
 
 Here, we can capture when the mouse enters the button and when it leaves.
 
 
 
 ---
-@code[java code-max code-noblend](class10/src/TwoButtons.java)
+@code[java code-max code-noblend](src/TwoButtons.java)
 @[12-21]
 @[23-31]
 @[33-44](`getSource` returns the object where the event occurred. `setStyle` gives another way to change how nodes look.)
-@[46-51](Eventually we created 4 instances of `Mouse1`. We could have created only 2.)
+@[46-51](Eventually we created four instances of `Mouse1`. We could have created only two.)
 
 
 
@@ -399,7 +398,7 @@ Practically everything you would think is a private member of some javafx class 
 ### Example
 Let's make the following slider with matching label:
 
-@img[span-35 bordered](class10/resources/Slider.gif)
+@img[span-35 bordered](resources/Slider.gif)
 
 `Slider` has a `value` of type `DoubleProperty`. Therefore it has methods:
 + `setValue(double)`, `double getValue()`.
@@ -420,10 +419,10 @@ interface ChangeListener<T> {
 
 
 ---
-@code[java code-max code-noblend](class10/src/SliderExample.java)
+@code[java code-max code-noblend](src/SliderExample.java)
 @[11-22]
 @[24-31](Creating the slider and setting how it looks.)
-@[33-42](Our listener only cares about the new value.)
+@[33-43](Our listener only cares about the new value.)
 
 
 
@@ -435,12 +434,12 @@ interface ChangeListener<T> {
 
 
 ---
-@img[span-30 bordered](class10/resources/listView.gif)
+@img[span-30 bordered](resources/listView.gif)
 
 
 
 ---
-@code[java code-max code-noblend](class10/src/ListExample.java)
+@code[java code-max code-noblend](src/ListExample.java)
 @[13-24]
 @[26-30]
 @[32-40](The `selectedItemProperty` is the member of the list that is selected, and is a `Property`, so we can listen to changes in it.)

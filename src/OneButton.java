@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class OneButton extends Application {	
+public class OneButton extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -28,15 +28,15 @@ public class OneButton extends Application {
 		Label label = new Label("Never Pressed");
 		Button button = new Button("Press me!");
 
-		class LabelIncreaser implements 
-				EventHandler<ActionEvent> {
+		class LabelIncreaser
+				implements EventHandler<ActionEvent> {
 			@Override
 			public void handle(ActionEvent event) {
 				i++;
 				label.setText("Pressed " + i + " times");
 			}
 		}
-		
+
 		button.setOnAction(new LabelIncreaser());
 		VBox vbox = new VBox(20, button, label);
 		vbox.setPrefWidth(200);
